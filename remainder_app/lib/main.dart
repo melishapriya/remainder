@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import 'package:remainder_app/home_page.dart';
+import 'package:remainder_app/pages/budget_page.dart';
+import 'package:remainder_app/pages/home_page.dart';
+import 'package:remainder_app/pages/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),  // Make sure HomePage is your starting point
+      routes: {
+        '/profile': (context) => const ProfilePage(),
+        '/budget': (context) => const BudgetPage(), // Define the budget route here
+      },
     );
   }
 }
